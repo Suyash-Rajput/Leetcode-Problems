@@ -2,42 +2,79 @@ class Solution {
 public:
     bool makesquare(vector<int>& matchsticks) {
      
-         // base case 
-        int sum = 0 ;
+       if(matchsticks.size()<4) return false;
+       int p=0;
+        for(auto x:matchsticks)
+        {
+            p+=x;
+        }
+        if(p%4!=0)
+        {
+            return false;
+        }
+        int side=p/4;
+        sort(matchsticks.rbegin(),matchsticks.rend());
+        if(isquare(0,side,side,side,side,matchsticks))
+        {
+            return true;
+        }
+        return false;
         
-        for ( int i : matchsticks) sum += i ;
-        if ( sum == 0 or sum % 4 ) return false;
-        
-        // we know that the side of the square will be atleast the max element of the match array
-        // sorting the array elements 
-        sort( matchsticks.begin() , matchsticks.end() , greater<int>());
-        
-        // now i will make bucket of size sum / 4 
-        // and try all possibility to form that sum
-        vector<int> bucket(4, 0 );
-        return canMake( 0 , sum / 4 , matchsticks , bucket);
-        
-        
+    }
+ bool isquare(int i,int s1,int s2,int s3,int s4,vector<int>& matchsticks)
+    {
+    if(i==matchsticks.size())
+    {
+      if(s1==0 && s2==0 && s3==0 && s4==0)
+      {
+          return true;
+      }
+    else
+    {
+    return false;
+    }
     }
     
-   bool canMake ( int index , int bucketsize , vector<int> &matchsticks , vector<int> &bucket){ 
-        if ( index == matchsticks.size()) 
-            return bucket[0]==bucket[1] and bucket[1]==bucket[2] and bucket[2]==bucket[3] ;
-        
-        for ( int i = 0 ; i < 4 ; i ++ ){
-            if ( bucket[i] + matchsticks.at(index) > bucketsize) continue ;  
-           
-            int j = i ;
-            while ( --j >= 0) 
-                if ( bucket[i] == bucket[j]) break;
-            
-            if ( j != -1 ) continue ;
-            
-            bucket.at(i) += matchsticks.at(index);
-            if ( canMake ( index + 1 , bucketsize , matchsticks , bucket )) return true;
-            bucket.at(i) -= matchsticks.at(index);
+        if(matchsticks[i]<=s1)
+        {
+            s1-=matchsticks[i];
+            if(isquare(i+1,s1,s2,s3,s4,matchsticks))
+            {
+                return true;
+            }
+            s1+=matchsticks[i];
         }
-        
+        if(matchsticks[i]<=s2)
+        {
+            s2-=matchsticks[i];
+            if(isquare(i+1,s1,s2,s3,s4,matchsticks))
+            {
+                return true;
+            }
+            s2+=matchsticks[i];
+        }
+        if(matchsticks[i]<=s3)
+        {
+            s3-=matchsticks[i];
+            if(isquare(i+1,s1,s2,s3,s4,matchsticks))
+            {
+                return true;
+            }
+            s3+=matchsticks[i];
+        }
+        if(matchsticks[i]<=s4)
+        {
+            s4-=matchsticks[i];
+            if(isquare(i+1,s1,s2,s3,s4,matchsticks))
+            {
+                return true;
+            }
+            s4+=matchsticks[i];
+        }
         return false;
+      
     }
+    
+    
+    
 };
