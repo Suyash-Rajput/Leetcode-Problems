@@ -3,7 +3,12 @@ public:
     vector<vector<int>> insert(vector<vector<int>>& intervals, vector<int>& newInterval) {
      int intervLen = intervals.size();
         int newIntervLen = newInterval.size();
-        
+        if(intervLen==0 and newIntervLen==0){
+            return intervals;
+        }
+        if(newIntervLen==0){
+            return intervals;
+        }
         vector<vector<int>> ans;
         int i=0;
         int currMin = newInterval[0];
