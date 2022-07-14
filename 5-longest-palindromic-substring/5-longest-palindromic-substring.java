@@ -26,5 +26,7 @@ class Solution {
 	        }
 	    }   
 	    return s.substring(start, start + maxLength );
+     
+        
     }
 }
