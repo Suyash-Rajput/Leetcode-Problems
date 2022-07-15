@@ -11,7 +11,7 @@ public:
         int m = grid[0].size();
         for(int i=0;i<n;i++){
             for(int j=0;j<m;j++){
-                if(grid[i][j]){
+                if(grid[i][j]==1){
                     ans=max(ans,helper(grid,i,j));
                 }
             }
