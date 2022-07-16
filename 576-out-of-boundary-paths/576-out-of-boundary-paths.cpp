@@ -6,7 +6,7 @@ public:
     long long f(int r ,int c,int moves)   {
        
         if((r < 0 || c < 0 || r >= this->m || c >= this->n) && (moves >= 0)) return 1;
-        if(moves <= 0) return 0;
+        if(moves < 0) return 0;
          if(dp[r][c][moves]!=-1) return dp[r][c][moves];
         long long ans = f(r+1, c, moves-1) + f(r-1, c, moves-1) + f(r, c+1, moves-1) + f(r, c-1, moves-1);
         
