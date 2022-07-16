@@ -1,24 +1,23 @@
 class Solution {
-    public String reverseWords(String s) {
-         int  b = s.length() -1 ;
-         String a = "" ;
-        int  i = b ;
-        while(i>=0) {
-            
-            while(i>=0 && s.charAt(i) == ' ') i-- ;
-            int  j= i ;
-            if(i<0) break ;
-            while(i>=0 && s.charAt(i) != ' ' ) i-- ;
-            
-            if(a.isEmpty()) {
-                a= a.concat(s.substring(i+1,j+1)) ;
-            }
-            else{ 
-               a= a.concat(" " + s.substring(i+1,j+1)) ;
-            }
-            
-        }
+public:
+    string reverseWords(string s) {
+ 
+         string res;
+        int i=0;
+        int n=s.size();
         
-    return a ;    
+        while(i < n){
+            while(i < n and s[i] == ' ') i++;
+            if(i >= n) break;
+            int j = i+1;
+            while(j < n and s[j] != ' ') j++;
+            
+            string sub = s.substr(i, j-i);
+            if(res.size() == 0) res = sub;
+            else res = sub + ' ' + res;
+            
+            i = j+1;
+        }
+        return res;
     }
-}
+};
