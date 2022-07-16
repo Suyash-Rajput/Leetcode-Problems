@@ -9,7 +9,7 @@ public:
         while(i < n){
             while(i < n and s[i] == ' ') i++;
             if(i >= n) break;
-            int j = i+1;
+            int j = i;
             while(j < n and s[j] != ' ') j++;
             
             string sub = s.substr(i, j-i);
