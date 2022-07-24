@@ -1,28 +1,20 @@
 class Solution {
 public:
     vector<int> mostVisited(int n, vector<int>& rounds) {
-       vector<int> f(101) ;
-        ++f[rounds[0]] ;
-        for(int i=0;i<rounds.size()-1;i++) {
-            int s= rounds[i]+1  ;
-            int e = rounds[i+1] ;
-            
-            for(int j=s;;j++) {
-                
-                 j %= (n + 1) ;
-                if(!j) ++j ;
-                ++f[j] ;
-                if(j == e) break;
-                
-                if(j==e)break ;
+       vector<int> f(n) ;
+        int s = rounds[0]-1 ;
+        ++f[s] ;
+        for(int i=0;i<rounds.size();i++) {
+            while(s!=rounds[i]-1){
+                s++ ;
+                s%=n ;
+                f[s]++ ;
             }
-            
-            
         }
          int maxi = *max_element(begin(f),end(f)) ; //get max freq
         vector<int> ans ;
 		//check for max freq sectors
-        for(int i = 1 ; i < f.size() ; ++i ) if(f[i] == maxi) ans.push_back(i) ;
+        for(int i = 0 ; i < n ; ++i ) if(f[i] == maxi) ans.push_back(i+1) ;
         return ans ;
         
     }
