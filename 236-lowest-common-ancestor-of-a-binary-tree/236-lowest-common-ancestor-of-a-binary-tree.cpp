@@ -13,8 +13,8 @@ public:
        
          if(root==NULL || root->val==p->val || root->val==q->val) return root ;
         
-        if(root->left==NULL and root->right==NULL) return NULL ;
-          TreeNode *left = lowestCommonAncestor(root->left,p,q) ;
+        
+     TreeNode *left = lowestCommonAncestor(root->left,p,q) ;
         TreeNode *right =lowestCommonAncestor(root->right,p,q) ;
         
         if(left==NULL) {
