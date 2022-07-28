@@ -4,28 +4,32 @@ public:
     bool suyash(int n,vector<int> &nums,int sum,vector<vector<int>>& dp ){
       
         
-        if(sum==0) return true ;
-        if(n<0||sum<0)
-    {
-        return false;
+        if(sum==0) 
+            return true ;
+        
+        if(n>=nums.size()) {
+            return false;
         }
-        
         if(dp[n][sum]!=-1) return dp[n][sum] ;
-        return  dp[n][sum]= suyash(n-1,nums,sum-nums[n],dp) || suyash(n-1,nums,sum,dp) ;
         
+        if(nums[n]<=sum) 
+            return dp[n][sum]= suyash(n+1,nums,sum-nums[n],dp) || suyash(n+1,nums,sum,dp) ;
+        
+        return dp[n][sum] =suyash(n+1,nums,sum,dp) ;
     }
     
     bool canPartition(vector<int>& nums) {
         
-        int n =nums.size(); 
-        int sum = 0;
-        for(int i=0;i<n;i++) {
-            sum+=nums[i] ;
+         int s=0;
+        for(auto i:nums){
+            s+=i;
         }
-        if(sum&1) return false ;
-        sum=sum/2 ;
-       vector<vector<int>> dp(n,vector<int>(sum+1,-1)) ;
-     
-      return  suyash(n-1,nums, sum,dp) ;
+        if(s%2!=0){
+            return false;
+        } 
+        int n =nums.size() ;
+       vector<vector<int>> dp(n,vector<int>(s+1,-1)) ;
+        
+      return  suyash(0,nums, s/2,dp) ;
     }
 };
