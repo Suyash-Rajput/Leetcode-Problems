@@ -17,7 +17,8 @@ public:
        if( isValidBST(root->left)==false) return false ; 
        if(prev!=NULL  and prev->val >=root->val)return false ;
         prev=  root; 
-    return    isValidBST(root->right) ;
+    if(isValidBST(root->right)==false) return false  ;
         
+        return true ;
     }
 };
