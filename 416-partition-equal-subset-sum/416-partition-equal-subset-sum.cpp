@@ -6,15 +6,15 @@ public:
         if(sum==0) 
             return true ;
         
-        if(n>=nums.size()) {
+        if(n>=nums.size() || sum<0) {
             return false;
         }
         if(dp[n][sum]!=-1) return dp[n][sum] ;
         
-        if(nums[n]<=sum) 
+         
             return dp[n][sum]= suyash(n+1,nums,sum-nums[n],dp) || suyash(n+1,nums,sum,dp) ;
         
-        return dp[n][sum] =suyash(n+1,nums,sum,dp) ;
+         
     }
     
     bool canPartition(vector<int>& nums) {
