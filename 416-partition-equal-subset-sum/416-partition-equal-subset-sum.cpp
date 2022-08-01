@@ -2,8 +2,7 @@ class Solution {
 public:
    
     bool suyash(int n,vector<int> &nums,int sum,vector<vector<int>>& dp ){
-      
-        
+ 
         if(sum==0) 
             return true ;
         
