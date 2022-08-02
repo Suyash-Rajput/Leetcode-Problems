@@ -6,7 +6,8 @@ public:
         int high =matrix[n-1][n-1] ;
         
        
-					int mid, temp, count;
+					int mid, temp, count ;
+      
 					while(low < high){
 						mid = low + (high-low)/2;
 						temp = n - 1;
