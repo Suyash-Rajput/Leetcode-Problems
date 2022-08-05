@@ -19,7 +19,7 @@ public:
         int c= 0 ; 
         ListNode *nexthead = head;
         for(int i=0;i<k;i++) {
-            if(!nexthead) {
+            if(nexthead==NULL) {
                 return head;
             }
             nexthead=  nexthead->next ;
