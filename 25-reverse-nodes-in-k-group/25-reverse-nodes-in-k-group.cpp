@@ -23,7 +23,9 @@ public:
                 return head;
             }
             nexthead=  nexthead->next ;
+         
         }
+      
         while(temp && c<k) {
             next= temp->next;
             temp->next= prev ;
