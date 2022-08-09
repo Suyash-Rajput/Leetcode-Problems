@@ -1,18 +1,27 @@
 class Solution {
 public:
+      
     int lengthOfLIS(vector<int>& nums) {
         
         const int n = nums.size();
-        vector<int> dp(n, 1);
+        vector<int> tail;
         
-        for(int i{1}; i<n; i++){
-            for(int j{0}; j<i; j++){
-                if(nums[i] > nums[j]) dp[i] = max(dp[i], dp[j]+1);
+        for(int num : nums){
+            if(tail.empty() || num > tail.back()){
+                tail.push_back(num);
+            }
+            else{
+                tail[firstGreatEqual(tail, num)] = num;
             }
         }
         
-        return *max_element(dp.begin(), dp.end());
+        return tail.size();
         
-        
+    }
+    private:
+    int firstGreatEqual(vector<int>& t, int tr){
+		// For finding the index of target element.
+		// Lower_Bound solves via Binary Search.
+        return lower_bound(t.begin(), t.end(), tr) - t.begin();
     }
 };
