@@ -14,12 +14,12 @@ public:
     TreeNode  * suyash(vector<int> nums,int a,int b) {
         
         if(a>b) return NULL ;
-        int m =  (a+b)/2 ;
+        int m =  a+(b-a)/2 ;
         TreeNode* mid = new TreeNode(nums[m]);
         mid->left = suyash(nums,a,m-1) ;
         mid->right= suyash(nums,m+1,b) ;
         
-return mid ;
+   return mid ;
     }
     TreeNode* sortedArrayToBST(vector<int>& nums) {
           int a = 0 ;
