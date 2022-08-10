@@ -18,8 +18,7 @@ public:
         queue<TreeNode*>  nodeQueue ;
         nodeQueue.push(root ) ;
         bool lefttoright=true;
-        
-        
+      
         while(!nodeQueue.empty()) {
             int size=  nodeQueue.size() ;
             vector<int> row(size) ;
