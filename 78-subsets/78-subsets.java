@@ -9,14 +9,13 @@ class Solution {
 
 void suyash(int i  ,int[] arr,List<Integer> curr,List<List<Integer>> res) {
         
-    if (i == arr.length) {
-			res.add(new ArrayList<Integer>(curr));
-			return;
-		}
-		curr.add(arr[i]);
-		suyash(i + 1,arr, curr, res);
-		curr.remove(curr.size() - 1);
-		suyash(i + 1,arr, curr, res);
+     res.add(new ArrayList(curr)) ;
+    for(int a =i;a<arr.length;a++) {
+        curr.add(arr[a]);
+        suyash(a+1,arr,curr,res);
+        curr.remove(curr.size()-1) ;
+    }
+   
  
 }
     
