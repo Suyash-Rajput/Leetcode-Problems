@@ -15,30 +15,26 @@
  */
 class Solution {
     public int minDepth(TreeNode root) {
-        if (root == null){
-            return 0;
+         if(root==null) return  0 ;
+        Queue<TreeNode> q  =new ArrayDeque();
+        q.offer(root) ;
+        int depth=1;
+        while(!q.isEmpty()){
+            int s =q.size() ;
+           for(int i=0;i<s;i++) {
+               TreeNode w = q.poll() ;
+               if(w.left!=null )
+                   q.offer(w.left) ;
+               if(w.right!=null)
+                   q.offer(w.right) ;
+               if(w.left==null && w.right==null) return depth ;
+           }       
+            
+            depth++ ;
         }
-        // BFS level order traversal
-        Queue<TreeNode> queue = new ArrayDeque<>();
-        queue.offer(root);
-        // root node's depth = 1
-        int depth = 1;
-        while (!queue.isEmpty()){
-            int size = queue.size();
-            for(int i = 0; i < size; i++){
-                TreeNode head = queue.poll();
-                if (head.left != null){
-                    queue.offer(head.left);
-                }
-                if (head.right != null){
-                    queue.offer(head.right);
-                }
-                if (head.left == null && head.right == null){
-                    return depth;
-                }
-            }
-            depth++;
-        }
-        return -1;
+        
+        
+        
+        return -1 ;
     }
-}
+} 
