@@ -2,7 +2,7 @@ class Solution {
 public:
    
     bool suyash(int n,vector<int> &nums,int sum,vector<vector<int>>& dp ){
- 
+   
         if(sum==0) 
             return true ;
         
@@ -13,7 +13,7 @@ public:
         
          if(nums[n]<=sum)
             return dp[n][sum]= suyash(n+1,nums,sum-nums[n],dp) || suyash(n+1,nums,sum,dp) ;
-        
+        else
          return dp[n][sum] =suyash(n+1,nums,sum,dp) ;
     }
    
