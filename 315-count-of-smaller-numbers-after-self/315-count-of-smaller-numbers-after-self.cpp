@@ -1,9 +1,10 @@
 class Solution {
 public:
+    
      
-    void merge(vector<int>& arr, int l, int mid, int r,vector<pair<int,int>>& v,vector<int>& count){
+    void merge(vector<int>& arr ,int l, int mid, int r,vector<pair<int,int>>& v,vector<int>& count){
      
-          vector<pair<int,int>> temp(r-l+1);
+     vector<pair<int,int>> temp(r-l+1);
         int i = l;
         int j= mid + 1;
         int k = 0;
@@ -45,4 +46,4 @@ public:
         mergesort(nums,0,n-1,v,count) ;
       return count;
      }
-};
+}; 
