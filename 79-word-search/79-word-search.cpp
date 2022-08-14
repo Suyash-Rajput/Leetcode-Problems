@@ -2,7 +2,6 @@ class Solution {
 public:
     bool ans  ;
     
-    
      bool isValid(int i, int j, int n, int m, int idx, string word, vector<vector<bool>>& vis, vector<vector<char>>& a)
     {
         return ((i >= 0) and (i < n) and (j >= 0) and (j < m) and (idx < word.size()) and (!vis[i][j]) and (word[idx] == a[i][j]));
@@ -46,7 +45,6 @@ public:
                 if(board[i][j]==word[0])
                     dfs(board,vis,i,j,word, n,m,0 ) ;
             }
-            
         }
         
         
