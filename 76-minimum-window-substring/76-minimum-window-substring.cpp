@@ -1,7 +1,8 @@
 class Solution {
 public:
     string minWindow(string s, string t) {
-        
+     
+         
     string res = "";
         
         vector<int> v(128, 0);
@@ -33,7 +34,5 @@ public:
         }
         
         return res; 
-        
-        
     }
 };
