@@ -2,18 +2,19 @@ class Solution {
 public:
     int subarraysDivByK(vector<int>& nums, int k) {
         
-        vector<int> v(k,0) ;
-        int sum =0;
-        for(int i:nums){
-            sum+=(i%k +k)%k ;
-            v[sum%k]++ ;
+        unordered_map<int,int> mp;
+        mp[0]=1;
+        int sum=0,count=0;
+        for(int i=0;i<nums.size();i++)
+        {
+            sum=sum+nums[i];
+            int remaining =sum%k;
+            if(remaining<0)
+                remaining+=k;
+            count=count+mp[remaining];
+            mp[remaining]++;
         }
-        int result =v[0] ;
-        for(auto i:v) {
-             result+=(i*(i-1))/2;
-        }
-        
-        return result ;
+        return count;
         
     }
 };
