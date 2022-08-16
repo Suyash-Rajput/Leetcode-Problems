@@ -3,25 +3,22 @@ public:
       
     int lengthOfLIS(vector<int>& nums) {
         
-        const int n = nums.size();
-        vector<int> tail;
+        vector<int> t ;
+t.push_back(nums[0]) ;
         
-        for(int num : nums){
-            if(tail.empty() || num > tail.back()){
-                tail.push_back(num);
-            }
-            else{
-                tail[firstGreatEqual(tail, num)] = num;
-            }
-        }
-        
-        return tail.size();
+for(int i=1;i<nums.size() ;i++) {
+    
+    if (nums[i]>t.back()) {
+        t.push_back(nums[i]) ;
+    }
+    else{
+        int a = lower_bound(t.begin(),t.end(),nums[i]) -t.begin() ;
+        t[a] =nums[i] ;
+    }
+}
+
+return t.size() ;
         
     }
-    private:
-    int firstGreatEqual(vector<int>& t, int tr){
-		// For finding the index of target element.
-		// Lower_Bound solves via Binary Search.
-        return lower_bound(t.begin(), t.end(), tr) - t.begin();
-    }
+   
 };
