@@ -15,7 +15,7 @@ public:
                 
             }
             else if(nums[l]>=nums[m]) {
-                if(target<=nums[m] or target>=nums[l])
+                if(target<nums[m] or target>=nums[l])
                               h= m-1; 
                 else 
                     l=m+1;
