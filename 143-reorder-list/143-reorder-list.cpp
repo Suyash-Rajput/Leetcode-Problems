@@ -43,10 +43,10 @@ public:
   }
    void merge(ListNode *l1,ListNode *l2) {
        while(l2!=NULL) {
-           ListNode *n =l1->next ;
+           ListNode *p =l1->next ;
            l1->next =l2 ;
            l1=l2 ;
-           l2  = n ;
+           l2=p ;
        }
        
    }  
