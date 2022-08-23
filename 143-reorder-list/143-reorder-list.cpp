@@ -11,46 +11,46 @@
 class Solution {
 public:
     void reorderList(ListNode* head) {
-       if(head==NULL||head->next==NULL)
-			return;
-		ListNode* slow=head;
-		ListNode* fast=head;
-		 ListNode* prev=head;
-		while(fast!=NULL&&fast->next!=NULL){
-			prev=slow;
-			slow=slow->next;
-			fast=fast->next->next;
-		}
-		prev->next=NULL;
-		ListNode* l1=head;
-		ListNode* l2=reverse(slow);
-		merge(l1,l2);
-         
+       if(head==NULL ||head->next==NULL) return ;
+        
+        ListNode *slow =head;
+        ListNode *prev= slow ;
+        ListNode *fast =head ;
+        while(fast!=NULL && fast->next!=NULL){
+            prev=slow ;
+            slow=slow->next ;
+            fast=fast->next ->next ;
+        }
+        prev->next=NULL ;
+        ListNode * l1 =head;
+        ListNode *l2= reverse(slow) ;
+          
+        merge(l1,l2) ;
     }
-    
-    ListNode* reverse(ListNode* head){
-		if(head==NULL)
-			return NULL;
-		ListNode *prev=NULL;
-		ListNode* curr=head;
-		ListNode* next;
-		while(curr!=NULL){
-			next=curr->next;
-			curr->next=prev;
-			prev=curr;
-			curr=next;
-		}
-		return prev;
-	}
-
-	void merge(ListNode* L1,ListNode* L2){
-		while(L2!=NULL){
-			ListNode* next=L1->next;
-			L1->next=L2;
-			L1=L2;
-			L2=next;
-		}
-	}
+  ListNode *reverse(ListNode *head){
+      if(!head)return NULL ;
+      ListNode *temp =head ;
+      ListNode *prev=NULL;
+      ListNode *next=NULL; 
+      while(temp!=NULL){
+          next =temp->next ;
+          temp->next=prev;
+          prev= temp;
+          temp = next; 
+      }
+      return prev; 
+      
+  }
+   void merge(ListNode *l1,ListNode *l2) {
+       while(l2!=NULL) {
+           ListNode *n =l1->next ;
+           l1->next =l2 ;
+           l1=l2 ;
+           l2  = n ;
+       }
+       
+   }  
+     
 };
  
 
