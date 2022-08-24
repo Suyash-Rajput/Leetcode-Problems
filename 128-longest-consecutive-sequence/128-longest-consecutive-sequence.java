@@ -13,19 +13,16 @@ class Solution {
                     c++ ;
                     currentbreak++ ;
                 }
-                
-                
                 ma =Math.max(ma,currentbreak) ;
             }
-            
-            
-            
-            
-            
+               
         }
         
         
         return ma ;
+        
+   
     }
     
 }
+ 
