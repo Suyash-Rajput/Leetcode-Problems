@@ -18,5 +18,7 @@ class Solution {
         double sum = arr.get(idx)*1.00000 + arr.get(idx-1)*1.00000;
         
         return sum/2;
+        
+           
     }
 }
