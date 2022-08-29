@@ -14,14 +14,14 @@ public:
   
     TreeNode *prev =NULL; 
     bool isValidBST(TreeNode* root) {
-        if(!root) return true ;
        
-       if(isValidBST(root->left )==false) return false  ;
-         
-        if(prev!=NULL && prev->val>=root->val ){
-            return false ;
-        }
-          prev =root; 
+        if(!root) return true ;
+        if(isValidBST(root->left)==NULL ) return false; 
+        if(prev!=NULL && prev->val>=root->val) return false; 
+        
+        prev= root; 
+        
         return isValidBST(root->right) ;
+        
     }
 };
