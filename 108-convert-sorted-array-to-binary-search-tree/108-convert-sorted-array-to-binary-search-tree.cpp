@@ -11,21 +11,26 @@
  */
 class Solution {
 public:
-    TreeNode  * suyash(vector<int> nums,int a,int b) {
-        
-        if(a>b) return NULL ;
-        int m =  a+(b-a)/2 ;
-        TreeNode* mid = new TreeNode(nums[m]);
-        mid->left = suyash(nums,a,m-1) ;
-        mid->right= suyash(nums,m+1,b) ;
-        
-   return mid ;
-    }
-    TreeNode* sortedArrayToBST(vector<int>& nums) {
-          int a = 0 ;
-        int b = nums.size() ;
-        
-    return     suyash(nums,a,b-1) ;
 
+    
+    TreeNode *suyash(vector<int> &nums,int a,int b) {
+        if(a>b) return NULL;
+        int mid = a+(b-a)/2 ;
+        
+        TreeNode * m =  new TreeNode(nums[mid]) ;
+        m->left = suyash(nums,a,mid-1);
+        m->right =suyash(nums,mid+1,b);
+        
+        
+        return m  ;
+    }
+    
+    TreeNode* sortedArrayToBST(vector<int>& nums) {
+        int a = 0; 
+        int b = nums.size() ;
+        return suyash(nums,a,b-1);
+        
+        
     }
 };
+ 
