@@ -34,11 +34,12 @@ public:
     }
     
     ListNode* removeNthFromEnd(ListNode* head, int n) {
-     if(!head)return NULL ;
-        int a = len(head) ;
-        if(a==n-1) {
+        if(!head) return NULL;
+        int a= len(head)  ;
+        if(a==n-1) 
             return head->next ;
-        }
+        
         return suyash(head,a-n) ;
+         
     }
 };
