@@ -11,33 +11,34 @@
 class Solution {
 public:
     int len(ListNode *head){
-        if(!head)return  0 ;
-        ListNode *temp =head; 
-        int i =0 ;
-        while(temp!=NULL){
-            temp=temp->next ;
-            i++ ;
+        if(!head) return 0 ;
+        int a =0 ;
+        while(head!=NULL) {
+            a++ ;
+            head=head->next ;
         }
-        return i ; 
-    }
+        return a-1 ;
+    } 
+    ListNode *suyash(ListNode *temp,int i) {
+        if(!temp) return NULL;
+        ListNode *head  =temp ;
+        if(i==0) {
+            head->next= head->next->next ;
+            
+        } 
+       else 
+           suyash(head->next,--i) ;
     
-    ListNode *suyash(ListNode *temp,int n){
-        ListNode  *head= temp ;
-        if(n==0) 
-            head->next =head->next->next;
-        else{
-            suyash(head->next,--n) ;
-        }
-        
         return temp ;
+        
     }
     
     ListNode* removeNthFromEnd(ListNode* head, int n) {
-        if(!head)return NULL ;
+     if(!head)return NULL ;
         int a = len(head) ;
-        if(a==n) {
+        if(a==n-1) {
             return head->next ;
         }
-        return suyash(head,a-n-1) ;
+        return suyash(head,a-n) ;
     }
 };
