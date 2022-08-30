@@ -33,8 +33,7 @@ public:
             while(i+1<n &&nums[i]==nums[i+1]) i++;
         }
      return dj ;
-
         
     }
 
-};
+}; 
