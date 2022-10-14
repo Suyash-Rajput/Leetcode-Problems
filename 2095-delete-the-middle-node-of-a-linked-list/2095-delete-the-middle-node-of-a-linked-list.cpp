@@ -27,15 +27,15 @@ ListNode  *prev =head ;
         int a = 0 ;
         while(a!=i) {
             a++ ;
-            head= temp ;
+            prev= temp ;
             temp =temp->next ;
         }
         
-    head->next =temp->next ;
+    prev->next =temp->next ;
         
         delete temp ;
         
-        return prev ;
+        return  head ;
         
     }
 };
