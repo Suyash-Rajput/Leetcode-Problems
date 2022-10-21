@@ -14,7 +14,7 @@ public:
          Map[nums[i]] = i;
         }
         return false;
-        
+       
     }
 };
 
