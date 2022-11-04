@@ -2,7 +2,9 @@ class Solution {
 public:
     
     bool check(char s) {
-        if( s=='a'  ||s=='e'|| s=='i'||s=='o'|| s=='u' ||s == 'A' || s == 'E' || s == 'I' ||s == 'O' ||s == 'U' ){
+    bool a = ( s=='a'  ||s=='e'|| s=='i'||s=='o'|| s=='u') ;
+    bool b = (s == 'A' || s == 'E' || s == 'I' ||s == 'O' ||s == 'U') ;
+        if(a ||b ){
             return true ;
         }
         else 
