@@ -1,22 +1,19 @@
 class Solution {
     public List<String> generateParenthesis(int n) {
-        List<String> l = new ArrayList()  ;
-        
-        suyash("(",1,0,l,n);
-        return l;
-        
-    }
-   public void suyash(String s,int a,int b,List<String> result,int n) {
-       if(s.length()==2*n) {
-           result.add(s) ;
-           return ;
-       }
-       
-       if(a<n) suyash(s+"(",a+1,b,result,n)  ;
-       if(b<a) suyash(s+")",a,b+1,result,n)   ;
-       
       
-   } 
-    
+        List<String> s = new ArrayList() ;
+         suyash("(",1,0,s,n) ;
+        
+        
+        return s ;
+    }
+ public void suyash(String a,int i,int j,List<String> s,int n) {
+      if(a.length()==2*n) {
+          s.add(a);
+        return ;
+      }
+     if(i<n) suyash(a+"(",i+1,j,s,n) ;
+     if(j<i) suyash(a+")",i,j+1,s,n)  ;
+ }
     
 }
