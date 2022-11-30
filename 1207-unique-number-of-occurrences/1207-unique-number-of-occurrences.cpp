@@ -8,13 +8,15 @@ public:
         
      unordered_set<int> s ;
         
-        for(auto c:m) {
-            if(s.count(c.second)) {
+        for(auto i :m) {
+            if(s.count(i.second)==1) {
                 return false ;
-            } 
-           else  
-                s.insert(c.second) ;
+            }
+            else 
+                s.insert(i.second) ;
+            
         }
+     
         return true ;
     }
 };
